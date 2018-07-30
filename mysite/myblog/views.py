@@ -20,5 +20,4 @@ def list_view(request):
     posts = published.order_by('-published_date')
     template = loader.get_template('list.html')
     context = {'posts': posts}
-    body = template.render(context)
-    return HttpResponse(body, content_type="text/html")
+    return render(request, 'list.html', context)
