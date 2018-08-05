@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
 from myblog.models import Post
+from myblog.models import Category
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from myblog.serializers import UserSerializer, GroupSerializer
-
+from myblog.serializers import PostSerializer, CategorySerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -22,6 +23,22 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows posts to be viewed or edited.
+    """
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows categories to be viewed or edited.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 def stub_view(request, *args, **kwargs):
