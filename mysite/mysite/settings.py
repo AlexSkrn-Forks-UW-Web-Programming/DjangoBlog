@@ -20,14 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY =
+SECRET_KEY = '&6$$x(%twjb1jqvz1m469zb08)w(d++-qprrmfv+=y8+f6&5mn'
 # In deployment, this causes FileNotFoundError
-try:
-    from_path = os.path.join(BASE_DIR, 'mysite/secret_key.txt')
-    with open(from_path) as from_f:
-        SECRET_KEY = from_f.read().strip()
-except:
-    pass
+# try:
+#     from_path = os.path.join(BASE_DIR, 'mysite/secret_key.txt')
+#     with open(from_path) as from_f:
+#         SECRET_KEY = from_f.read().strip()
+# except:
+#     pass
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
