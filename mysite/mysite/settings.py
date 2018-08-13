@@ -21,9 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY =
-from_path = os.path.join(BASE_DIR, 'mysite/secret_key.txt')
-with open(from_path) as from_f:
-    SECRET_KEY = from_f.read().strip()
+# In deployment, this causes FileNotFoundError
+try:
+    from_path = os.path.join(BASE_DIR, 'mysite/secret_key.txt')
+    with open(from_path) as from_f:
+        SECRET_KEY = from_f.read().strip()
+except:
+    pass
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
